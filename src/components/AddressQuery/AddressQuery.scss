@@ -2,17 +2,17 @@ $primary: #65a7dd;
 $text: #8a8a8a;
 
 .address-query {
-  font-family: Arial, Helvetica, sans-serif;
-
+  
   .address-query--title {
     font-size: 2rem;
   }
   
   .address-query__form {
     background-color: #ededed;
-    padding: 1rem;
-  
+    padding: 2rem;
+    
     .address-query__form--title {
+      margin-top: 0;
       font-size: 1.2rem;
     }
 
@@ -43,6 +43,11 @@ $text: #8a8a8a;
 
       &:hover {
         background-color: darken($primary, 20%);
+      }
+
+      &[disabled] {
+        background-color: #8a8a8a;
+        cursor: not-allowed
       }
     }
 

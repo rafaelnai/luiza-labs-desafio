@@ -1,0 +1,33 @@
+.address-map {
+  padding: 1rem 2rem 2rem 2rem;
+  border: 3px solid #ededed;
+  margin-top: .5rem;
+  position: relative;
+
+  .address-map--title {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  .address-map--detail {
+    margin: .5rem 0;
+
+    &:last-of-type {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .address-map--close {
+    font-size: 1.7rem;
+    position: absolute;
+    color: #fff;
+    text-shadow: 0 0 2px #0e0e0e;
+    right: .5rem;
+    top: 0rem;
+
+    &:hover {
+      cursor: pointer;
+      text-shadow: 0 0 4px #0e0e0e;
+    }
+  }
+}

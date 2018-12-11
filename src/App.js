@@ -1,6 +1,6 @@
+import './App.min.css'
 import React, { Component } from 'react';
-import AddressQuery from './components/AddressQuery/AddressQuery'
-import AddressMap from './components/AddressMap/AddressMap'
+import AddressContainer from './containers/AddressContainer/AddressContainer'
 
 class App extends Component {
 
@@ -8,13 +8,11 @@ class App extends Component {
     return (
       <main className="container">
 
-        <AddressQuery/>
-        <AddressMap/>
+        <AddressContainer/>
 
       </main>
-    );
+    )
   }
-
 }
 
 export default App;

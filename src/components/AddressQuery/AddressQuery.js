@@ -1,99 +1,49 @@
-import React, { Component } from 'react'
-import fetchJsonp from 'fetch-jsonp'
+import React from 'react'
 import './AddressQuery.min.css'
 
-class AddressQuery extends Component {
+const AddressQuery = props => {
 
-  constructor() {
-    super()
-    this.state = {
-      currentAddress: null,
-      dataAddress: null,
-      isFetching: false,
-      invalidCEP: null
-    }
-  }
+  const { handleChange, getAddress, invalidCEP, isFetching, cep } = props
 
-  isCep(cep) {
+  return (
 
-    const regex = /^[0-9]{8}$/
-    return regex.test(cep)
-  }
+    <section className="address-query">
 
-  getAddress(e) {
-    e.preventDefault()
+      <h2 className="address-query--title">Consulta de endereço</h2>
 
-    const cep = this.state.currentAddress
-    const url = `https://viacep.com.br/ws/${cep}/json/?callback=currentAddress` 
+      <form
+        className="address-query__form"
+        onSubmit={e => getAddress(e)}
+      >
 
-    this.setState({isFetching: true})
+        <h4 className="address-query__form--title">Consultar</h4>
 
-    this.isCep(cep)
-    ? fetchJsonp(url)
-      .then(response => response.json())
-      .then(json =>
-        this.setState({
-          invalidCEP: !!json.erro ? 'CEP não encontrado' : false,
-          dataAddress: !!json.erro ? null : json
-        })
-      )
-      .then(() => this.setState({isFetching: false}))
-      .catch(err => console.log(err))
-    : this.setState({
-        isFetching: false,
-        invalidCEP: 'CEP inválido'
-      })
-  }
+        <label className="address-query__form--label" htmlFor="cep">CEP</label>
+        <input
+          className="address-query__form--field"
+          onChange={e => handleChange(e)}
+          value={cep}
+        />
 
-  handleChange(e) {
-
-    this.setState({
-      currentAddress: e.target.value
-    })
-  }
-
-  render() {
-
-    return(
-  
-      <section className="address-query">
-  
-        <h2 className="address-query--title">Consulta de endereço</h2>
-  
-        <form
-          className="address-query__form"
-          onSubmit={e => this.getAddress(e)}
+        <button
+          className="address-query__form--btn"
+          disabled={isFetching}
+          type="submit"
         >
-  
-          <h4 className="address-query__form--title">Consultar</h4>
-  
-          <label className="address-query__form--label" htmlFor="cep">CEP</label>
-          <input
-            className="address-query__form--field"
-            onChange={e => this.handleChange(e)}
-          />
-  
-          <button
-            className="address-query__form--btn"
-            disabled={this.state.isFetching}
-            type="submit"
-          >
-            Buscar
+          Buscar
           </button>
 
-          {
-            !!this.state.invalidCEP &&
-            <small className="address-query__form--invalid">
-              {this.state.invalidCEP}
-            </small>
-          }
-  
-        </form>
-      </section>
-  
-    )
-  }
+        {
+          !!invalidCEP &&
+          <small className="address-query__form--invalid">
+            {invalidCEP}
+          </small>
+        }
 
+      </form>
+    </section>
+
+  )
 }
 
 export default AddressQuery
