@@ -2,6 +2,7 @@
   "name": "desafio-luiza-labs",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://luiza-labs-desafio.herokuapp.com/",
   "dependencies": {
     "fetch-jsonp": "^1.1.3",
     "react": "^16.6.3",
