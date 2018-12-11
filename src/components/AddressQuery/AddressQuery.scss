@@ -29,6 +29,13 @@ $text: #8a8a8a;
       padding: .5rem;
       margin: 0 .5rem;
       width: 120px;
+
+      @media screen and (max-width: 465px){
+        margin: .5rem 0;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
     }
   
     .address-query__form--btn {
@@ -49,11 +56,13 @@ $text: #8a8a8a;
         background-color: #8a8a8a;
         cursor: not-allowed
       }
+
     }
 
     .address-query__form--invalid {
       color: tomato;
       margin: .5rem;
+      white-space: nowrap;
     }
     
   }
