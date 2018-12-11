@@ -20,7 +20,7 @@ const AddressQuery = props => {
 
         <label className="address-query__form--label" htmlFor="cep">CEP</label>
         <input
-          type="tel"
+          inputMode="numeric"
           className="address-query__form--field"
           onChange={e => handleChange(e)}
           value={cep}
