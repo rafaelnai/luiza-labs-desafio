@@ -20,7 +20,7 @@ const AddressQuery = props => {
 
         <label className="address-query__form--label" htmlFor="cep">CEP</label>
         <input
-          pattern="[0-9]*"
+          pattern="\d{5}-?\d{3}"
           inputMode="numeric"
           className="address-query__form--field"
           onChange={e => handleChange(e)}
