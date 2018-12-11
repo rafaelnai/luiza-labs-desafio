@@ -12,6 +12,7 @@ const AddressQuery = props => {
       <h2 className="address-query--title">Consulta de endereço</h2>
 
       <form
+        noValidate
         className="address-query__form"
         onSubmit={e => getAddress(e)}
       >
@@ -20,7 +21,7 @@ const AddressQuery = props => {
 
         <label className="address-query__form--label" htmlFor="cep">CEP</label>
         <input
-          pattern="\d{5}-?\d{3}"
+          pattern="[0-9]*"
           inputMode="numeric"
           className="address-query__form--field"
           onChange={e => handleChange(e)}
